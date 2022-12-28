@@ -1,0 +1,51 @@
+
+\ProvidesPackage{pdf-style}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shadows.blur}
+\usepackage{titletoc}
+\usepackage{lipsum}
+\usepackage{calc}
+\usepackage[]{titlesec} 
+\definecolor{yourcolor}{HTML}{000000}
+
+\colorlet{chpnumbercolor}{black}
+\makeatletter
+\let\oldl@chapter\l@chapter
+\def\l@chapter#1#2{\oldl@chapter{#1}{\textcolor{chpnumbercolor}{#2}}}
+
+\let\old@dottedcontentsline\@dottedtocline
+\def\@dottedtocline#1#2#3#4#5{%
+\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textcolor{chpnumbercolor}{#5}}}}
+\makeatother
+
+\titleformat{\chapter}[display]
+  {\normalfont\color{yourcolor}}
+  {\filleft\Huge\sffamily\bfseries\chaptertitlename\hspace*{2mm}%
+  \begin{tikzpicture}[baseline={([yshift=-.6ex]current bounding box.center)}]
+    \node[fill=yourcolor,circle,text=white] {\thechapter};
+  \end{tikzpicture}}
+  {1ex}
+  {\titlerule[1.5pt]\vspace*{5ex}\huge\sffamily\itshape}
+  []
+
+\titleformat{name=\chapter,numberless}[display]
+  {\normalfont\color{yourcolor}}
+  {}
+  {1ex}
+  {\vspace*{5ex}\huge\sffamily\itshape}
+  []
+
+%command to print the acutal minitoc
+\newcommand{\printmyminitoc}{%
+    \noindent\hspace{-2cm}%
+    \colorlet{chpnumbercolor}{white}%
+    \begin{tikzpicture}
+    \node[rounded corners,align=left,fill=yourcolor, blur shadow={shadow blur steps=5}, inner sep=5mm]{%
+        \color{white}%
+        \begin{minipage}{8cm}%minipage trick
+        \printcontents[chapters]{}{1}{}
+        \end{minipage}};
+    \end{tikzpicture}}
+
+\endinput

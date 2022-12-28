@@ -1,0 +1,87 @@
+\documentclass[oneside, a4paper]{report}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{amsmath}
+\usepackage{cleveref}
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{pdf-style}
+\usepackage{float}
+\usepackage[sf]{noto}
+\usepackage[Export]{adjustbox}
+\usepackage{xcolor}
+\usepackage{listingsutf8}
+\adjustboxset{max size={\textwidth}{0.7\textheight}}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+\pagestyle{fancy}
+%\fancyhead[CO,CE]{$title$}
+\fancyfoot[CO,CE]{$author$}
+\fancyfoot[LE,RO]{\thepage}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setcounter{secnumdepth}{4}
+
+  \titleformat{\paragraph}
+  {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+  \titlespacing*{\paragraph}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\begin{document}
+\begin{titlepage}
+  \scshape
+  \center
+  \vspace{1cm}
+  
+  
+  \raisebox{-\baselineskip}{\rule{\textwidth}{1px}}
+  \rule{\textwidth}{1px}
+  \vspace{0.2cm}
+  
+  {\huge{{$title$}}}\par \vspace{0.1cm}
+  {\Large{{$subtitle$}}}\par \vspace{0.1cm}
+  $version$
+
+  \rule{\textwidth}{2px}
+  
+  \vspace{1cm}
+  
+  \begin{tabularx}{\textwidth}{X r}
+      Írta:\\
+      \large{$author$}\\
+  \end{tabularx}
+  
+  \vspace{2.3cm}
+  
+  
+  \vfill
+  \today
+  
+\end{titlepage}
+
+$body$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

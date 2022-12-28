@@ -1,0 +1,33 @@
+name: "PDF generator"
+description: "Generate PDF file with Pandoc"
+inputs:
+  title:
+    description: The title of the document
+    required: true
+    default: "Feladat neve"
+  subtitle:
+    description: The title of the document
+    required: true
+    default: "Programozás"
+  version:
+    description: The version of the document
+    required: true
+    default: "1.0.0"
+  author:
+    description: The author of the document
+    required: true
+    default: "Ignácz Dominik Bence"
+  files:
+    description: The files to create the PDF from
+    required: true
+    default: "README.md"
+runs:
+  using: "docker"
+  image: "idomi27/idb-pandoc-gen:latest"
+  args:
+    - ${{ inputs.title }}
+    - ${{ inputs.subtitle }}
+    - ${{ inputs.version }}
+    - ${{ inputs.author }}
+    - ${{ inputs.files }}
+
