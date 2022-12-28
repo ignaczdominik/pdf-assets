@@ -1,11 +1,13 @@
 .PHONY: feladatsor
 
 pdf:
-	echo 'title: $(TITLE)\nsubtitle: $(SUBTITLE)\nversion: $(version) \nauthor: $(author)' > metadata.yml
 	[ -d build ] || mkdir -p build
 	pandoc \
 	$(FILES) \
-	--metadata-file=metadata.yml -s \
+	--metadata=title:$(TITLE) \
+	--metadata=subtitle:$(SUBTITLE) \
+	--metadata=version:$(VERSION) \
+	--metadata=author:$(AUTHOR) \
 	--template=template.tex \
 	--standalone \
 	-o ./build/feladatsor.pdf
