@@ -23,7 +23,7 @@ inputs:
     default: "README.md"
 runs:
   using: "docker"
-  image: "idomi27/idb-pandoc-gen:latest"
+  image: "docker://idomi27/idb-pandoc-gen:latest"
   args:
     - ${{ inputs.title }}
     - ${{ inputs.subtitle }}
