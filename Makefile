@@ -17,6 +17,7 @@ pdf:
 	--exclude=*template.tex* \
 	--exclude=*entrypoint.sh* \
 	--exclude=*Dockerfile* \
+	--exclude=*action.yml* \
 	--exclude=*v1.zip*
 	! [ -d minta ] || zip -r9q build/minta.zip minta
 default: pdf
