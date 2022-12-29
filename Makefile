@@ -3,6 +3,8 @@
 pdf:
 	[ -d build ] || mkdir -p build
 	pandoc $(FILES) --template=template.tex -o build/feladatsor.pdf \
+	--listings \
+	--lua-filter filters.lua \
 	--metadata title="$(TITLE)" \
 	--metadata subtitle="$(SUBTITLE)" \
 	--metadata version="$(VERSION)" \
@@ -18,6 +20,7 @@ pdf:
 	--exclude=*entrypoint.sh* \
 	--exclude=*Dockerfile* \
 	--exclude=*action.yml* \
+	--exclude=*filters.lua* \
 	--exclude=*v1.zip*
 	! [ -d minta ] || zip -r9q build/minta.zip minta
 default: pdf
