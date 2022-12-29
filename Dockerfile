@@ -1,13 +1,8 @@
 FROM texlive/texlive:latest-full
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV TITLE ""
-ENV SUBTITLE ""
-ENV VERSION ""
-ENV AUTHOR ""
-ENV FILES ""
 
-RUN apt update && apt install -y pandoc librsvg2-bin make 
+RUN apt update && apt install -y pandoc librsvg2-bin make zip unzip
 
 RUN mkdir /github
 RUN mkdir /github/workspace
