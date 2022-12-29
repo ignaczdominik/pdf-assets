@@ -1,4 +1,4 @@
-\documentclass[oneside, a4paper]{report}
+\documentclass[a4paper]{report}
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{amsmath}
@@ -17,6 +17,7 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{pdf-style}
+\usepackage{pdf-languages}
 \usepackage{float}
 \usepackage[sf]{noto}
 \usepackage[Export]{adjustbox}
@@ -31,6 +32,33 @@
     \endorigfigure
 }
 
+\newcommand{\passthrough}[1]{#1}
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{black!5},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    linewidth=\textwidth,
+    inputencoding=utf8,
+    language=HTML5,
+    extendedchars=false,
+    commentstyle=\color{mediumgray}\upshape,
+    emphstyle=\color{crimson},
+    keywordstyle=\color{mediumblue},
+    keywordstyle={[2]\color{darkviolet}},
+    keywordstyle={[3]\color{royalblue}},
+    stringstyle=\color{forestgreen},
+    upquote=true
+}
 \pagestyle{fancy}
 %\fancyhead[CO,CE]{$title$}
 \fancyfoot[CO,CE]{$author$}
