@@ -14,8 +14,7 @@ RUN mkdir /github/workspace
 VOLUME /github/workspace
 WORKDIR /github/workspace
 
-COPY ./Makefile /github/workspace/Makefile
-COPY ./entrypoint.sh /github/workspace/entrypoint.sh
-
-ENTRYPOINT [ "entrypoint.sh" ]
+COPY Makefile /Makefile
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 #CMD ["make", "TITLE='${TITLE}'", "SUBTITLE='${SUBTITLE}'","VERSION='${VERSION}'","AUTHOR='${AUTHOR}'","FILES='${FILES}'"]
