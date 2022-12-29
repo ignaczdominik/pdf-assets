@@ -24,10 +24,10 @@ inputs:
 runs:
   using: "docker"
   image: "docker://idomi27/idb-pandoc-gen:latest"
-  env:
-    title: ${{ inputs.title }}
-    subtitle: ${{ inputs.subtitle }}
-    version: ${{ inputs.version }}
-    author: ${{ inputs.author }}
-    files: ${{ inputs.files }}
+  args:
+    - ${{ inputs.title }}
+    - ${{ inputs.subtitle }}
+    - ${{ inputs.version }}
+    - ${{ inputs.author }}
+    - ${{ inputs.files }}
 
